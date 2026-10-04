@@ -1,0 +1,44 @@
+# AIME-Con 2026 — Generative AI for Item Development
+# Reference environment, verified September 2026.
+#
+# You do NOT need to install this file. Each Colab notebook installs only what it uses,
+# with a %pip cell at the top. This file records the versions the materials were built
+# and tested against, so the session can be reproduced later or run locally.
+
+# --- Core orchestration (LangChain 1.x — NOT the 0.3 line used in 2025) ---
+langchain>=1.4,<2
+langchain-core>=1.6,<2
+langgraph>=1.2,<2
+
+# --- Model providers ---
+langchain-google-genai>=4.4,<5      # Gemini (free tier)
+langchain-groq>=1.1,<2              # gpt-oss on Groq (free tier)
+google-genai>=2.22                  # used only to list models your key can see
+
+# --- Retrieval (notebook 2.0) ---
+langchain-chroma>=1.1,<2            # replaces langchain_community.vectorstores.Chroma
+langchain-huggingface>=1.2,<2
+langchain-text-splitters>=1.0
+langchain-community>=0.4             # PDF loaders only
+sentence-transformers>=6.0
+chromadb>=1.5
+pypdf>=6.0
+
+# --- Evaluation and QC (notebook 3.0) ---
+pandas
+numpy
+textstat>=0.7
+
+# --- Fine-tuning (notebook 4.0, T4 GPU runtime) ---
+transformers>=5.17,<6              # 2025 materials pinned 4.36 — that API is gone
+trl>=1.12,<2                        # SFTTrainer / SFTConfig replace the raw Trainer loop
+peft>=0.20
+datasets>=5.0
+accelerate>=1.15
+
+# --- Agents and tools (notebook 5.0) ---
+langchain-tavily>=0.2               # replaces langchain_community TavilySearchResults
+# langchain-mcp-adapters>=0.3       # optional: Model Context Protocol tools (appendix only)
+
+# --- Shared ---
+pydantic>=2.13,<3
